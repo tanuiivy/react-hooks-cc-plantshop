@@ -13,9 +13,14 @@ function PlantPage(){
     .then((data) => setPlants(data));//store the plants in state
     }, []);
 
+    //add a new plant
+    function handleAddPlant(newPlant){
+      setPlants([...plants, newPlant]);//updates the state with new plant
+    }
+
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm onAddPlant={handleAddPlant} />
       <Search />
       <PlantList plants={plants} />
     </main>

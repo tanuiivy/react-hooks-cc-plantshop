@@ -1,6 +1,6 @@
 import React, {useState}from "react";
 
-function NewPlantForm() {
+function NewPlantForm(onAddPlant) {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
@@ -33,13 +33,13 @@ function NewPlantForm() {
   return (
     <div className="new-plant-form">
       <h2>New Plant</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input 
         type="text" 
         name="name" 
         placeholder="Plant name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e) => setName(e.target.value)}// updates state when a value is input
          />
 
         <input
