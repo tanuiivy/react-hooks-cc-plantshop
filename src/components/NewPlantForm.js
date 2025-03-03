@@ -1,6 +1,6 @@
 import React, {useState}from "react";
 
-function NewPlantForm(onAddPlant) {
+function NewPlantForm({onAddPlant}) {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
@@ -18,7 +18,7 @@ function NewPlantForm(onAddPlant) {
     //post request to server
     fetch("http://localhost:6001/plants", {
       method: "POST",
-      header: {"Content-Type": "application/json"},
+      headers: {"Content-Type": "application/json"},
       body: JSON.stringify(newPlant)
     })
     .then((res) => res.json())
@@ -46,8 +46,8 @@ function NewPlantForm(onAddPlant) {
          type="text" 
          name="image" 
          placeholder="Image URL" 
-         value={name}
-         onChange={(e) => setName(e.target.value)}
+         value={image}
+         onChange={(e) => setImage(e.target.value)}
          />
 
         <input 
@@ -55,8 +55,8 @@ function NewPlantForm(onAddPlant) {
         name="price" 
         step="0.01"
         placeholder="Price" 
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
         />
 
         <button type="submit">Add Plant</button>

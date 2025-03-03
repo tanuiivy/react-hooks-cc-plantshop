@@ -27,10 +27,6 @@ button.primary {
   background-color: var(--green);
   color: white;
 }
-/*button.sold.out{
-  background-color: red;
-  color: white;
-} */
 
 .app {
   margin: 0 auto;
