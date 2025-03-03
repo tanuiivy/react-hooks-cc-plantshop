@@ -6,6 +6,7 @@ import Search from "./Search";
 function PlantPage(){
   //to store fetched plants
   const [plants, setPlants] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:6001/plants")
@@ -21,8 +22,8 @@ function PlantPage(){
   return (
     <main>
       <NewPlantForm onAddPlant={handleAddPlant} />
-      <Search />
-      <PlantList plants={plants} />
+      <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      <PlantList plants={plants} searchTerm={searchTerm} />
     </main>
   );
 }
